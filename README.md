@@ -199,6 +199,15 @@ level, but with Java's method naming convention:
 4. WARN -> `logger.warn("warning message")`
 5. ERROR -> `logger.error("error message")`
 
+## Summary
+
+Logging provides several advantages to `System.out.println()` statements. It
+provides more contextual information with little additional code, like a
+timestamp, log level, and an indication to what class wrote out the log message.
+The logging framework also provides logging levels, so we can specify when
+certain information should be written out to the log. In the next lesson, we'll
+learn how to configure the log with these levels.
+
 ## References
 
 -[Spring Logging Documentation](https://docs.spring.io/spring-boot/docs/2.1.18.RELEASE/reference/html/boot-features-logging.html)
