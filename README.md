@@ -158,7 +158,7 @@ the Lombok dependency again to help instantiate a logger for us!
 
 The Lombok dependency comes with different annotations, depending on the logging
 framework we are using. In our case, we are using the SLF4J logger library.
-Therefore, we could add the `@Sl4j` annotation at the class level to generate
+Therefore, we could add the `@Slf4j` annotation at the class level to generate
 `private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MyClass.class);`
 at runtime.
 
@@ -173,7 +173,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@Sl4j
+@Slf4j
 public class JokeService {
 
     private static final String JOKE_URI = "https://icanhazdadjoke.com/";
@@ -192,7 +192,7 @@ public class JokeService {
 }
 ```
 
-Notice that when using the `@Sl4j` annotation, our `Logger` instance is called
+Notice that when using the `@Slf4j` annotation, our `Logger` instance is called
 `log`.
 
 ## Log Levels
@@ -255,4 +255,4 @@ learn how to configure the log with these levels.
 ## References
 
 - [Spring Logging Documentation](https://docs.spring.io/spring-boot/docs/2.1.18.RELEASE/reference/html/boot-features-logging.html)
-- [Lombok Sl4j Annotation Documentation](https://projectlombok.org/api/lombok/extern/slf4j/Slf4j)
+- [Lombok Slf4j Annotation Documentation](https://projectlombok.org/api/lombok/extern/slf4j/Slf4j)
