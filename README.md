@@ -151,6 +151,50 @@ We could pass in another class, and the corresponding statements would be
 prepended with the name of that class, even though they actually came from a
 different class at runtime. However, doing so is highly **not** recommended.
 
+## Lombok Logging Annotation
+
+Now that we understand a little more about what is happening, we can also use
+the Lombok dependency again to help instantiate a logger for us!
+
+The Lombok dependency comes with different annotations, depending on the logging
+framework we are using. In our case, we are using the SLF4J logger library.
+Therefore, we could add the `@Sl4j` annotation at the class level to generate
+`private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MyClass.class);`
+at runtime.
+
+Let's go ahead and rewrite the code above to use the `@Sl4j` annotation:
+
+```java
+package com.example.springrestdemo.service;
+
+import com.example.springrestdemo.dto.JokeDTO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+@Sl4j
+public class JokeService {
+
+    private static final String JOKE_URI = "https://icanhazdadjoke.com/";
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public JokeService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public JokeDTO getJoke() {
+        log.info("Using logger: Retrieving the joke from the external source");
+        System.out.println("Using System.out: Retrieving the joke from the external source");
+        return restTemplate.getForObject(JOKE_URI, JokeDTO.class);
+    }
+}
+```
+
+Notice that when using the `@Sl4j` annotation, our `Logger` instance is called
+`log`.
+
 ## Log Levels
 
 One of the great features of a logging framework is that it gives us access to
