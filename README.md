@@ -254,4 +254,5 @@ learn how to configure the log with these levels.
 
 ## References
 
--[Spring Logging Documentation](https://docs.spring.io/spring-boot/docs/2.1.18.RELEASE/reference/html/boot-features-logging.html)
+- [Spring Logging Documentation](https://docs.spring.io/spring-boot/docs/2.1.18.RELEASE/reference/html/boot-features-logging.html)
+- [Lombok Sl4j Annotation Documentation](https://projectlombok.org/api/lombok/extern/slf4j/Slf4j)
